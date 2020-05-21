@@ -1,0 +1,17 @@
+{
+  "name": "expoRouteTest",
+  "displayName": "expoRouteTest",
+  "expo": {
+    "name": "expoRouteTest",
+    "slug": "expoRouteTest",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
