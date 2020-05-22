@@ -5,7 +5,8 @@ import Navigation from "../shared/navigation";
 const styles = StyleSheet.create({
   header: {
     textAlign: "center",
-    fontSize: 20
+    fontSize: 20,
+    fontWeight: "bold"
   },
 });
 
@@ -14,7 +15,7 @@ const About = () => {
     <View>
       <Navigation />
       <Text style={styles.header}>
-        This is the about screen
+        This is the ABOUT screen
       </Text>
     </View>
   )
