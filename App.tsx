@@ -1,10 +1,11 @@
 import React from "react";
-import One from "./components/One";
+import AppRouter from "./components/router";
+
 
 class App extends React.Component {
   render() {
     return (
-      <One />
+      <AppRouter />
     );
   }
 }
