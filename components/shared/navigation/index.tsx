@@ -1,13 +1,12 @@
 import React from "react"
 import { View, Text, StyleSheet } from "react-native"
-import { Link } from "react-router-native"
+import { Link } from "react-router-dom"
 
 const styles = StyleSheet.create({
   nav: {
     flexDirection: "row",
     justifyContent: "space-around",
     marginBottom: 40,
-    color: "red"
   },
   navItem: {
     flex: 1,
@@ -19,12 +18,16 @@ const styles = StyleSheet.create({
 const Navigation = () => {
   return (
     <View style={styles.nav}>
-      <Link to="/" underlayColor="#f0f4f7" style={styles.navItem}>
-        <Text>HOME</Text>
-      </Link>
-      <Link to="/about" underlayColor="#f0f4f7" style={styles.navItem}>
-        <Text>ABOUT</Text>
-      </Link>
+      <View style={styles.navItem}>
+        <Link to="/" >
+          <Text>HOME</Text>
+        </Link>
+      </View>
+      <View style={styles.navItem}>
+        <Link to="/about">
+          <Text>ABOUT</Text>
+        </Link>
+      </View>
     </View>
   )
 }

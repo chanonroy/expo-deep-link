@@ -19,10 +19,10 @@ module.exports = async function(env, argv) {
           if (one.use.loader.indexOf("babel-loader") !== -1) {
             // Inject the absolute path of react router native
             const loaderPath = one.use.loader
-            const rrNative = path.resolve("./node_modules/react-router-native")
+            const reactRouter = path.resolve("./node_modules/react-router")
             const rule = {
               test: /\.(js|jsx|mjs)$/,
-              include: [rrNative],
+              include: [reactRouter],
               loader: loaderPath,
             }
 

@@ -1,20 +1,22 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { NativeRouter, Route } from "react-router-native";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "../screens";
 import About from "../screens/about";
 
 /**
- * Implementation using react-navigation
+ * Implementation using react-navigation (TODO)
  */
 const AppRouter = () => {
     return (
-      <NativeRouter>
+      <Router>
         <View style={styles.container}>
-          <Route exact path="/" component={Home} />
-          <Route path="/about" component={About} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+          </Switch>
         </View>
-      </NativeRouter>
+      </Router>
     );
 }
 

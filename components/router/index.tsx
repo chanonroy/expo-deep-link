@@ -1,20 +1,22 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "../screens";
 import About from "../screens/about";
-import { Router, Route, Switch } from "react-router";
-import { createBrowserHistory } from "history"
-
-const history = createBrowserHistory();
+import routes from "./routes";
 
 /**
- * Implementation using react-router-native
+ * Implementation using react-router
  */
 const AppRouter = () => {
+    console.log(routes);
     return (
-      <Router history={history}>
+      <Router>
         <View style={styles.container}>
           <Switch>
+            {routes.map(route => {
+              <Route exact={route.exact} path={route.path} component={route.component} />
+            })}
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
           </Switch>
