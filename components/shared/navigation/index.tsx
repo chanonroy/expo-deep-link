@@ -1,6 +1,6 @@
 import React from "react"
 import { View, Text, StyleSheet } from "react-native"
-import { Link } from "react-router-dom"
+import Link from "../link";
 
 const styles = StyleSheet.create({
   nav: {
