@@ -15,8 +15,8 @@ function AppRouter() {
   const linking = {
     prefixes: [prefix],
     config: {
-      Home: '/',
-      About: '/about',
+      Home: '',
+      About: 'about',
     },
   };
   return (

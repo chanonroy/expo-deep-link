@@ -2,10 +2,11 @@
   "main": "index.js",
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios  --no-https",
-    "web": "expo start --web  --no-https",
+    "ios": "react-native run-ios",
+    "web": "expo start --web --no-https",
     "start": "expo start --no-https",
     "test": "jest",
+    "deeplink:ios": "xcrun simctl openurl booted exp://127.0.0.1:19000/--/about",
     "expo:upgrade": "yarn expo upgrade"
   },
   "dependencies": {

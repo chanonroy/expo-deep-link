@@ -2,7 +2,7 @@
   "name": "Expo Deep Link Test",
   "displayName": "Expo Deep Link Test",
   "expo": {
-    "scheme": "exps",
+    "scheme": "myapp",
     "name": "Expo Deep Link Test",
     "slug": "expo-deep-link-test",
     "version": "1.0.0",
