@@ -1,6 +1,5 @@
 import React from "react"
-import { Text, StyleSheet, View } from "react-native"
-import Navigation from "../shared/navigation";
+import { Text, StyleSheet, View, Button } from "react-native"
 
 const styles = StyleSheet.create({
   header: {
@@ -10,13 +9,13 @@ const styles = StyleSheet.create({
   },
 });
 
-const About = () => {
+const About = ({ navigation }: any) => {
   return (
     <View>
-      <Navigation />
       <Text style={styles.header}>
         This is the ABOUT screen
       </Text>
+      <Button onPress={() => navigation.navigate('Home')} title="home" />
     </View>
   )
 }

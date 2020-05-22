@@ -2,16 +2,11 @@
   "name": "Expo Deep Link Test",
   "displayName": "Expo Deep Link Test",
   "expo": {
+    "scheme": "exps",
     "name": "Expo Deep Link Test",
     "slug": "expo-deep-link-test",
     "version": "1.0.0",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "platforms": ["ios", "android", "web"],
+    "assetBundlePatterns": ["**/*"]
   }
 }
