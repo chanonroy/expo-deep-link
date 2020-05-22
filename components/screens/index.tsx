@@ -2,6 +2,7 @@ import React from "react"
 import { View, Text, StyleSheet } from "react-native"
 import Navigation from "../shared/navigation";
 
+
 const styles = StyleSheet.create({
   header: {
     textAlign: "center",

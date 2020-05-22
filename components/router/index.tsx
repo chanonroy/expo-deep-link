@@ -3,7 +3,6 @@ import { StyleSheet, View } from "react-native";
 import { NativeRouter, Route } from "react-router-native";
 import Home from "../screens";
 import About from "../screens/about";
-import Navigation from "../shared/navigation";
 
 /**
  * Implementation using react-router-native
