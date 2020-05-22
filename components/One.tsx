@@ -7,9 +7,10 @@ const Home = () => <Text style={styles.header}>Home</Text>;
 
 const About = () => <Text style={styles.header}>About</Text>;
 
-
-class One extends React.Component {
-  render() {
+/**
+ * Implementation using react-router-native
+ */
+const One = () => {
     return (
       <NativeRouter>
         <View style={styles.container}>
@@ -27,7 +28,6 @@ class One extends React.Component {
         </View>
       </NativeRouter>
     );
-  }
 }
 
 const styles = StyleSheet.create({
