@@ -1,5 +1,6 @@
 import React from "react"
-import { Text, StyleSheet } from "react-native"
+import { View, Text, StyleSheet } from "react-native"
+import Navigation from "../shared/navigation";
 
 const styles = StyleSheet.create({
   header: {
@@ -8,8 +9,15 @@ const styles = StyleSheet.create({
   },
 });
 
-const Home = () => <Text style={styles.header}>
-  This is the home screen
-</Text>;
+const Home = () => {
+  return (
+    <View>
+      <Navigation />
+      <Text style={styles.header}>
+        This is the home screen
+      </Text>
+    </View>
+  )
+}
 
 export default Home

@@ -5,7 +5,6 @@ import Home from "../screens";
 import About from "../screens/about";
 import Navigation from "../shared/navigation";
 
-
 /**
  * Implementation using react-router-native
  */
@@ -13,7 +12,6 @@ const AppRouter = () => {
     return (
       <NativeRouter>
         <View style={styles.container}>
-          <Navigation />
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
         </View>

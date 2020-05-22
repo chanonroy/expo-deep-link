@@ -1,7 +1,6 @@
 import React from "react";
 import AppRouter from "./components/router";
 
-
 class App extends React.Component {
   render() {
     return (
@@ -9,7 +8,5 @@ class App extends React.Component {
     );
   }
 }
-
-
 
 export default App;

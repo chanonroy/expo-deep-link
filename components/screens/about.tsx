@@ -1,5 +1,6 @@
 import React from "react"
-import { Text, StyleSheet } from "react-native"
+import { Text, StyleSheet, View } from "react-native"
+import Navigation from "../shared/navigation";
 
 const styles = StyleSheet.create({
   header: {
@@ -8,8 +9,15 @@ const styles = StyleSheet.create({
   },
 });
 
-const About = () => <Text style={styles.header}>
-  This is the about section
-</Text>;
+const About = () => {
+  return (
+    <View>
+      <Navigation />
+      <Text style={styles.header}>
+        This is the about screen
+      </Text>
+    </View>
+  )
+}
 
 export default About
