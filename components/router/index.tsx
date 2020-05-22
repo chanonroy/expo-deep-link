@@ -1,8 +1,6 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "../screens";
-import About from "../screens/about";
 import routes from "./routes";
 
 /**
@@ -14,11 +12,11 @@ const AppRouter = () => {
       <Router>
         <View style={styles.container}>
           <Switch>
-            {routes.map(route => {
-              <Route exact={route.exact} path={route.path} component={route.component} />
+            {routes.map((route) => {
+              return (
+                <Route exact={route.exact} path={route.path} component={route.component} />
+              )
             })}
-            <Route exact path="/" component={Home} />
-            <Route path="/about" component={About} />
           </Switch>
         </View>
       </Router>
