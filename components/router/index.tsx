@@ -4,8 +4,10 @@ import { Text } from "react-native"
 import { Linking } from 'expo';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Home from '../screens';
-import About from '../screens/about';
+import HomeScreen from '../screens';
+import ProfileScreen from '../screens/profile';
+import SignInScreen from '../screens/sign-in';
+import SignUpScreen from '../screens/sign-up';
 
 const Stack = createStackNavigator();
 
@@ -16,14 +18,29 @@ function AppRouter() {
     prefixes: [prefix],
     config: {
       Home: '',
-      About: 'about',
+      Profile: 'profile',
+      SignIn: 'sign-in',
+      SignUp: 'sign-up'
     },
   };
+
+  const isSignedIn = false
+
   return (
     <NavigationContainer linking={linking} fallback={<Text>Loading...</Text>}>
       <Stack.Navigator>
-        <Stack.Screen name="Home" options={{ title: 'Overview' }} component={Home} />
-        <Stack.Screen name="About" options={{ title: 'Overview' }} component={About} />
+        {isSignedIn ?
+            <>
+              <Stack.Screen name="Home" options={{ title: 'Home' }} component={HomeScreen} />
+              <Stack.Screen name="Profile" options={{ title: 'Profile' }} component={ProfileScreen} />
+              
+            </>
+          :
+            <>
+              <Stack.Screen name="SignIn" options={{ title: 'Sign In' }} component={SignInScreen} />
+              <Stack.Screen name="SignUp" options={{ title: 'Sign Up' }} component={SignUpScreen} />
+            </>
+        }
       </Stack.Navigator>
     </NavigationContainer>
   );
