@@ -1,6 +1,7 @@
+import { useNavigation } from '@react-navigation/native';
 import React from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
-import { useNavigation } from '@react-navigation/native';
+import { AuthContext } from '../hooks/useAuthContext';
 
 const styles = StyleSheet.create({
   header: {
@@ -14,16 +15,22 @@ const styles = StyleSheet.create({
 const SignInScreen = () => {
   const navigation = useNavigation();
 
+  const { signIn } = React.useContext(AuthContext);
+
+  const handleLogin = async () => {
+    // 1. fetch from graphql
+
+    // 2. signIn action to set token
+    await signIn({ token: 'dummy-token' })
+  }
+
   return (
     <View style={{ padding: 20, alignItems: "center" }}>
       <Text style={styles.header}>
         This is the SignIn screen
       </Text>
       <View style={{ width: "200px", marginBottom: 10 }}>
-        <Button onPress={() => navigation.navigate('SignIn')} title="Go to Sign In" />
-      </View>
-      <View style={{ width: "200px", }}>
-        <Button onPress={() => navigation.navigate('SignUp')} title="Go to Sign Up" />
+        <Button onPress={() => handleLogin()} title="Simulate Sign In" />
       </View>
     </View>
   )
