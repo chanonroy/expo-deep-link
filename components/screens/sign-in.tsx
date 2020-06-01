@@ -1,5 +1,6 @@
-import React from "react"
-import { Text, StyleSheet, View, Button } from "react-native"
+import React from "react";
+import { Button, StyleSheet, Text, View } from "react-native";
+import { useNavigation } from '@react-navigation/native';
 
 const styles = StyleSheet.create({
   header: {
@@ -10,14 +11,19 @@ const styles = StyleSheet.create({
   },
 });
 
-const SignInScreen = ({ navigation }: any) => {
+const SignInScreen = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={{ padding: 20, alignItems: "center" }}>
       <Text style={styles.header}>
         This is the SignIn screen
       </Text>
+      <View style={{ width: "200px", marginBottom: 10 }}>
+        <Button onPress={() => navigation.navigate('SignIn')} title="Go to Sign In" />
+      </View>
       <View style={{ width: "200px", }}>
-        <Button onPress={() => console.log('sign in')} title="Sign In" />
+        <Button onPress={() => navigation.navigate('SignUp')} title="Go to Sign Up" />
       </View>
     </View>
   )
