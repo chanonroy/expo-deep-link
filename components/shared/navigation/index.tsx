@@ -1,6 +1,5 @@
 import React from "react"
-import { View, Text, StyleSheet } from "react-native"
-import { Link } from "react-router-native"
+import { View, Text, StyleSheet, Button } from "react-native"
 
 const styles = StyleSheet.create({
   nav: {
@@ -16,15 +15,11 @@ const styles = StyleSheet.create({
   }
 });
 
-const Navigation = () => {
+const Navigation = ({ navigation }: any) => {
   return (
     <View style={styles.nav}>
-      <Link to="/" underlayColor="#f0f4f7" style={styles.navItem}>
-        <Text>HOME</Text>
-      </Link>
-      <Link to="/about" underlayColor="#f0f4f7" style={styles.navItem}>
-        <Text>ABOUT</Text>
-      </Link>
+      <Button onPress={() => navigation.navigate('Home')} title="home" />
+      <Button onPress={() => navigation.navigate('About')} title="about" />
     </View>
   )
 }
