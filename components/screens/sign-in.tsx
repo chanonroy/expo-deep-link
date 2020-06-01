@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
-import { AuthContext } from '../hooks/useAuthContext';
+import { Button, StyleSheet, Text, View } from "react-native";import useAuth from '../hooks/use-auth';
+;
 
 const styles = StyleSheet.create({
   header: {
@@ -13,9 +13,7 @@ const styles = StyleSheet.create({
 });
 
 const SignInScreen = () => {
-  const navigation = useNavigation();
-
-  const { signIn } = React.useContext(AuthContext);
+  const { signIn } = useAuth()
 
   const handleLogin = async () => {
     // 1. fetch from graphql
