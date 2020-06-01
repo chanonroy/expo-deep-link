@@ -1,29 +1,61 @@
-import 'react-native-gesture-handler';
-import * as React from 'react';
-import { Text } from "react-native"
-import { Linking } from 'expo';
+import AsyncStorage from '@react-native-community/async-storage';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Home from '../screens';
-import About from '../screens/about';
+import { Linking } from 'expo';
+import * as React from 'react';
+import { Text } from "react-native";
+import 'react-native-gesture-handler';
+import useAuth from '../hooks/use-auth';
+import HomeScreen from '../screens';
+import ProfileScreen from '../screens/profile';
+import SignInScreen from '../screens/sign-in';
 
 const Stack = createStackNavigator();
 
 const prefix = Linking.makeUrl('/');
 
-function AppRouter() {
+const AppRouter = () => {
+  const { authState, dispatch } = useAuth()
+
+  React.useEffect(() => {
+    // Fetch the token from storage then navigate to our appropriate place
+    const bootstrapAsync = async () => {
+      let userToken;
+      try {
+        userToken = await AsyncStorage.getItem('userToken');
+      } catch (e) {
+        // Restoring token failed
+      }
+      dispatch({ type: 'RESTORE_TOKEN', token: userToken });
+    };
+
+    bootstrapAsync();
+  }, []);
+
+  // For Deep Linking
   const linking = {
     prefixes: [prefix],
     config: {
       Home: '',
-      About: 'about',
+      Profile: 'profile',
+      SignIn: 'sign-in',
     },
   };
+
   return (
     <NavigationContainer linking={linking} fallback={<Text>Loading...</Text>}>
       <Stack.Navigator>
-        <Stack.Screen name="Home" options={{ title: 'Overview' }} component={Home} />
-        <Stack.Screen name="About" options={{ title: 'Overview' }} component={About} />
+        {authState.userToken ?
+            <>
+              <Stack.Screen name="Home" options={{ title: 'Home' }} component={HomeScreen} />
+              <Stack.Screen name="Profile" options={{ title: 'Profile' }} component={ProfileScreen} />
+              
+            </>
+          :
+            <>
+              <Stack.Screen name="SignIn" options={{ title: 'Sign In' }} component={SignInScreen} />
+            </>
+        }
       </Stack.Navigator>
     </NavigationContainer>
   );

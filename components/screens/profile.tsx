@@ -1,5 +1,5 @@
 import React from "react"
-import { View, Text, StyleSheet, Button } from "react-native"
+import { Text, StyleSheet, View, Button } from "react-native"
 import { useNavigation } from "@react-navigation/native";
 import useAuth from "../hooks/use-auth";
 
@@ -12,17 +12,17 @@ const styles = StyleSheet.create({
   },
 });
 
-const HomeScreen = () => {
+const ProfileScreen = () => {
   const navigation = useNavigation()
   const { signOut } = useAuth()
-
+  
   return (
     <View style={{ padding: 20, alignItems: "center" }}>
       <Text style={styles.header}>
-        This is the HOME screen
+        This is the Profile screen
       </Text>
       <View style={{ width: "200px", marginBottom: 10 }}>
-        <Button onPress={() => navigation.navigate('Profile')} title="profile" />
+        <Button onPress={() => navigation.navigate('Home')} title="home" />
       </View>
       <View style={{ width: "200px", }}>
         <Button onPress={() => signOut()} title="Sign Out" />
@@ -31,5 +31,4 @@ const HomeScreen = () => {
   )
 }
 
-export default HomeScreen
-
+export default ProfileScreen
