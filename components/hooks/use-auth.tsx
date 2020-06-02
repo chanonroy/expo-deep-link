@@ -48,19 +48,14 @@ export const AuthProvider = ({ children }: any) => {
     () => ({
       signIn: async ({ token }: { token: string }) => {
         // Set the user token
-        try {
-          await AsyncStorage.setItem('userToken', token);
-        } catch (e) {
-          console.error("Restoring token failed")
-        }
+        await AsyncStorage.setItem('userToken', token);
+       
         dispatch({ type: 'SIGN_IN', token });
       },
       signOut: async () => {
-        try {
-          await AsyncStorage.removeItem('userToken');
-        } catch (e) {
-          console.error("Restoring token failed")
-        }
+        // Remove user token
+        await AsyncStorage.removeItem('userToken');
+       
         dispatch({ type: 'SIGN_OUT' })
       },
     }),
