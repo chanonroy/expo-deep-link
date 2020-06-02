@@ -15,18 +15,12 @@ const Stack = createStackNavigator();
 const prefix = Linking.makeUrl('/');
 
 const AppRouter = () => {
-  const { authState, dispatch } = useAuth()
+  const { authState, restoreToken } = useAuth()
 
   React.useEffect(() => {
     // Fetch the token from storage then navigate to our appropriate place
     const bootstrapAsync = async () => {
-      let userToken;
-      try {
-        userToken = await AsyncStorage.getItem('userToken');
-      } catch (e) {
-        // Restoring token failed
-      }
-      dispatch({ type: 'RESTORE_TOKEN', token: userToken });
+      restoreToken();
     };
 
     bootstrapAsync();

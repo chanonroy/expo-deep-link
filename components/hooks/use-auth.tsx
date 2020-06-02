@@ -12,10 +12,10 @@ const defaultAuthState: AuthState = {
 }
 
 interface AuthContextType {
-  dispatch: any;
   authState: AuthState;
   signIn: ({ token }: { token: string }) => Promise<void>;
   signOut: () => Promise<void>;
+  restoreToken: () => Promise<void>;
 }
 
 const reducer = (prevState: any, action: any) => {
@@ -49,21 +49,23 @@ export const AuthProvider = ({ children }: any) => {
       signIn: async ({ token }: { token: string }) => {
         // Set the user token
         await AsyncStorage.setItem('userToken', token);
-       
         dispatch({ type: 'SIGN_IN', token });
       },
       signOut: async () => {
         // Remove user token
         await AsyncStorage.removeItem('userToken');
-       
         dispatch({ type: 'SIGN_OUT' })
       },
+      restoreToken: async () => {
+        const token = await AsyncStorage.getItem('userToken');
+        dispatch({ type: 'RESTORE_TOKEN', token })
+      }
     }),
     []
   );
 
   return (
-    <AuthContext.Provider value={{ authState, dispatch, ...authActions }}>
+    <AuthContext.Provider value={{ authState, ...authActions }}>
       {children}
     </AuthContext.Provider>
   )
