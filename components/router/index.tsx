@@ -36,6 +36,10 @@ const AppRouter = () => {
     },
   };
 
+  const { isLoading } = authState
+
+  if (isLoading) return null
+
   return (
     <NavigationContainer linking={linking} fallback={<Text>Loading...</Text>}>
       <Stack.Navigator>
